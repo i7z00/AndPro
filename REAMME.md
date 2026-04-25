@@ -1,4 +1,4 @@
-# android_proxy_cert.py
+# AndPro.py
 
 Automates CA certificate installation for **Caido** or **Burp Suite** on an Android virtual device (AVD). Covers both the user-store (manual finish) and the full system-store (fully automated) installation flows.
 
@@ -32,24 +32,24 @@ Create one in Android Studio: `Device Manager → Create Device → pick a relea
 
 ### Caido — user-store
 ```bash
-python android_proxy_cert.py --proxy caido --user-store
+python AndPro.py --proxy caido --user-store
 ```
 Sets up `adb reverse`, pushes `ca.crt` to `/sdcard`, then prints the remaining on-device steps.
 
 ### Caido — system-store (fully automated)
 ```bash
-python android_proxy_cert.py --proxy caido --system-store --avd Pixel_6_API_33
+python AndPro.py --proxy caido --system-store --avd Pixel_6_API_33
 ```
 
 ### Burp Suite — user-store
 ```bash
-python android_proxy_cert.py --proxy burp --user-store
+python AndPro.py --proxy burp --user-store
 ```
 Downloads `cacert.der` from Burp, converts it to PEM, pushes to `/sdcard`.
 
 ### Burp Suite — system-store (fully automated)
 ```bash
-python android_proxy_cert.py --proxy burp --system-store --avd Pixel_6_API_33
+python AndPro.py --proxy burp --system-store --avd Pixel_6_API_33
 ```
 
 ### Optional flags
@@ -62,7 +62,7 @@ python android_proxy_cert.py --proxy burp --system-store --avd Pixel_6_API_33
 
 ```bash
 # Custom port, specific device:
-python android_proxy_cert.py --proxy burp --system-store \
+python AndPro.py --proxy burp --system-store \
   --avd Pixel_6_API_33 --caido-port 8080 --device emulator-5554
 ```
 
@@ -133,7 +133,7 @@ The script runs this automatically and renames the file before pushing it to the
 ## File structure
 
 ```
-android_proxy_cert.py   Main script — no other files needed
+AndPro.py   Main script — no other files needed
 README.md               This file
 ```
 
